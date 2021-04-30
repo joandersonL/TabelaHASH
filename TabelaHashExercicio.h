@@ -91,7 +91,7 @@ private:
 	void addTupla(Tupla <Chave,Valor>* t,vector <Tupla <Chave,Valor>* > &TN){
 
 		if(t!=NULL){
-			int codigo = abs(this-> minha_hash(t->getChave()) ) % this->qtde_buckets
+			int codigo = abs(this-> minha_hash(t->getChave()) ) % this->qtde_buckets;
 			if(TN[codigo]==NULL){
 				TN[codigo]  = new Tupla <Chave ,Valor > (t->getChave(),t->getValor());
 			}else{
@@ -99,7 +99,7 @@ private:
 			}
 		}
 	}
-	addTupla(Tupla <Chave,Valor>*  t,Tupla <Chave,Valor>*  t2){
+	void addTupla(Tupla <Chave,Valor>*  t,Tupla <Chave,Valor>*  t2){
 		if(t2==NULL){
 			t2 = new Tupla <Chave ,Valor > (t->getChave(),t->getValor());
 		}else{
@@ -212,7 +212,7 @@ public:
 	**/
 	vector<Chave> getChaves() {
 		//IMPLEMENTAR
-		std::vector<chave> v;
+		std::vector<Chave> v;
 		for(int i=0;i<this->qtde_buckets;i++){
 			addChave(this->tabela[i],v);
 		}
